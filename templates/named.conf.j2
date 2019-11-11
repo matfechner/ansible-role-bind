@@ -13,3 +13,5 @@ include "/etc/bind/named.conf.local.master";
 include "/etc/bind/named.conf.local.slave";
 include "/etc/bind/named.conf.local.forward";
 {% if not bind_config_disable_default_zones %}include "/etc/bind/named.conf.default-zones";{% endif %}
+
+{% if not bind_config_disable_default_keys %}include "/etc/bind/bind.keys";{% endif %}
