@@ -66,10 +66,12 @@ options {
         };
 	{% endif %}
 
-        dnssec-enable yes;
-        dnssec-validation yes;
-{% if bind_config_version %}        version "{{ bind_config_version }}";
-{% endif %}
+{% if bind_config_dnssec_enable %}	dnssec-enable {{ bind_config_dnssec_enable }};{% endif %}
+
+{% if bind_config_dnssec_validation %}	dnssec-validation {{ bind_config_dnssec_validation }};{% endif %}
+
+{% if bind_config_version %}	version {{ bind_config_version }};{% endif %}
+
         auth-nxdomain no; // conform to RFC1035
         
         listen-on { {{ bind_config_listen_on }}; }; 
